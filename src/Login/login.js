@@ -54,7 +54,7 @@ const LoginForm = () => {
     // console.log('Second')
     try {
       // Make an HTTP request to your Python server
-      const response = await axios.post('http://localhost:5000/login', {
+      const response = await axios.post('https://backend-2iym.onrender.com/login', {
         username: username,
         password: password,   
       });

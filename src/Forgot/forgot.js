@@ -19,7 +19,7 @@ const Forgot = () => {
         e.preventDefault();   
         try {
             // Make an HTTP request to your Python server
-            const response = await axios.post('http://localhost:5000/forgot', {            
+            const response = await axios.post('https://backend-2iym.onrender.com/forgot', {            
             email: checkemail
             });
                         

@@ -21,7 +21,7 @@ function Sigin() {
     e.preventDefault();   
     try {
         // Make an HTTP request to your Python server
-        const response = await axios.post('http://localhost:5000/sigin', {
+        const response = await axios.post('https://backend-2iym.onrender.com/sigin', {
         username: updateusername,
         password: updatepassword,
         email: updatemail

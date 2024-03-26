@@ -61,7 +61,7 @@ const Home = () => {
     const fetchData = async () => {
       // console.log('Record inner')
       try {
-        const response = await axios.post('http://localhost:5000/data');
+        const response = await axios.post('https://backend-2iym.onrender.com/data');
         if (response.data.length > 0) {
           // console.log('Record')
           setRecords(response.data);
@@ -125,7 +125,7 @@ const Home = () => {
           <div className="loading-spinner"></div>
         </div>
         ) : message ? (
-        <div className="message-container" style={{ display: message.display, justifyContent: 'center', alignItems: message.alignitems,backgroundColor: 'white' }}>
+        <div className="message-container" style={{display: message.display, justifyContent: 'center', alignItems: message.alignitems,backgroundColor: 'white' }}>
           <p style={{ color: message.color }}>{message.messageerror}</p>
         </div>
         ) : (
