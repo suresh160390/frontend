@@ -41,17 +41,17 @@ const Home = () => {
   const columns = [
     {
       name: 'username',
-      selector: row => row.Username,     
+      selector: row => row.username,     
       sortable: true
     },
     {
       name: 'password',
-      selector: row => row.Password,
+      selector: row => row.password,
       sortable: true
     },
     {
       name: 'email',
-      selector: row => row.Email,      
+      selector: row => row.email,      
       sortable: true
     },
   ]  
