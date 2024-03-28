@@ -40,17 +40,17 @@ const Home = () => {
 
   const columns = [
     {
-      name: 'Username',
+      name: 'username',
       selector: row => row.Username,     
       sortable: true
     },
     {
-      name: 'Password',
+      name: 'password',
       selector: row => row.Password,
       sortable: true
     },
     {
-      name: 'Email',
+      name: 'email',
       selector: row => row.Email,      
       sortable: true
     },
@@ -61,6 +61,7 @@ const Home = () => {
     const fetchData = async () => {
       // console.log('Record inner')
       try {
+        // https://backend-2iym.onrender.com
         const response = await axios.post('https://backend-2iym.onrender.com/data');
         if (response.data.length > 0) {
           // console.log('Record')
@@ -90,7 +91,7 @@ const Home = () => {
     const newData = filteredRecords.filter(row => {
       // console.log('Record inner')
       // Check if row.name is defined before applying toLowerCase()
-        return row.Username && row.Username.toLowerCase().includes(e.target.value.toLowerCase());
+        return row.username && row.username.toLowerCase().includes(e.target.value.toLowerCase());
     });
     // console.log('Record 2')
     if (newData.length === 0) {
