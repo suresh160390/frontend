@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<LoginForm />} />
         <Route path="/Sigin" element={<Sigin />} />
         <Route path="/forgot" element={<Forgot />} />
-        <Route path="/home/*" element={<ProtectedRoutes />} />                    
+        <Route path="https://backend-2iym.onrender.com/home/*" element={<ProtectedRoutes />} />                    
       </Routes>
     </Router>
   );
