@@ -14,7 +14,7 @@ const Services = () => {
 
   return (
     <>
-      <div style={{ width: '100%',height: '20%', display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'lightgray', border: '2px solid black'}}>
+      <div style={{ width: '100%',height: '40%', display: 'flex', flexDirection: 'column' , justifycontent: 'center', alignItems: 'center', textAlign: 'center', backgroundColor: 'lightgray', border: '2px solid black'}}>
         <select id="Services" onChange={handleSelectChange}>
             <option value="Select" >--Select--</option>
             <option value="PES">PES</option>            
