@@ -14,16 +14,16 @@ const Services = () => {
 
   return (
     <>
-      <div style={{ width: '100%',height: '40%',margin: '5px 0px 0px 5px', display: 'flex', justifycontent: 'center', alignItems: 'center', textAlign: 'center', backgroundColor: 'lightgray', border: '2px solid black'}}>
+      <div class='ser_hed'>
         <select id="Services" onChange={handleSelectChange}>
-            <option value="Select" >--Select--</option>
-            <option value="PES">PES</option>            
-          </select>
+          <option value="Select" >--Select--</option>
+          <option value="PES">PES</option>            
+        </select>
       </div>
-      <div style={{ width: '100%',height: '100%', marginTop: '5px'}}>
-        {isSelect ? (              
+      <div class='fin_hed'>
+        {isSelect ? (
           <div>
-            <iframe title='TPH' style={{ width: '100%',height: '100%'}}
+            <iframe title='TPH'
               src='https://app.powerbi.com/links/kqzAEIZqYI?ctid=b6a45e6a-409e-4c04-be22-3ad749b6c7bb&pbi_source=linkShare' 
               frameboder="0" allowFullScreen="true" >
             </iframe>
@@ -36,3 +36,4 @@ const Services = () => {
 }
 
 export default Services
+
