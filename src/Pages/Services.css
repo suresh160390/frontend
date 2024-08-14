@@ -1,0 +1,22 @@
+.ser_hed{
+    width: 100%;
+    height: 40%;
+    margin: 5px 0px 0px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: lightgray;
+    border: 2px solid black;
+}
+
+.fin_hed{
+    width: 100%;
+    height: 100vh;
+    margin-top: 5px;
+}
+
+iframe{
+    width: 100%;
+    height: 100vh;
+}
