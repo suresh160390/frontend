@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Services.css'
 
 const Services = () => {
   const [isSelect, setIsSelect] = useState(false);
