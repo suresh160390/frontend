@@ -1,13 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const Services = () => {
+  const [isSelect, setIsSelect] = useState(false);
+
+  function handleSelectChange(e) {
+    // Check if the selected value is "PES"
+    if (e.target.value === 'PES') {
+      setIsSelect(true);
+    } else {
+      setIsSelect(false);
+    }
+  }
+
   return (
-    <div className='Service'>
-      <iframe title='TPH' style={{ width: '100%',height: '100%'}}
-        src='https://app.powerbi.com/reportEmbed?reportId=20f80794-5ebd-4180-bc20-566405220056&groupId=445dfe32-d62a-4538-a382-30a5f3ceaf7e&w=2&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLUVBU1QyLUQtUFJJTUFSWS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldCIsImVtYmVkRmVhdHVyZXMiOnsidXNhZ2VNZXRyaWNzVk5leHQiOnRydWV9fQ%3d%3d' 
-        frameboder="0" allowFullScreen="true" >
-      </iframe>
-    </div>
+    <>
+      <div style={{ width: '100%',height: '20%', display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'lightgray', border: '2px solid black'}}>
+        <select id="Services" onChange={handleSelectChange}>
+            <option value="Select" >--Select--</option>
+            <option value="PES">PES</option>            
+          </select>
+      </div>
+      <div style={{ width: '100%',height: '100%', marginTop: '5px'}}>
+        {isSelect ? (              
+          <div>
+            <iframe title='TPH' style={{ width: '100%',height: '100%'}}
+              src='https://app.powerbi.com/links/kqzAEIZqYI?ctid=b6a45e6a-409e-4c04-be22-3ad749b6c7bb&pbi_source=linkShare' 
+              frameboder="0" allowFullScreen="true" >
+            </iframe>
+          </div>
+          ) : ( <div> </div>
+        )}
+      </div>
+    </>
   )
 }
 
