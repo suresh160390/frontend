@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate ,  Outlet,Link} from 'react-router-dom';
 import './login.css'
+import './waiting.css'
 // import './Sigin/sigin.css'
 
 // import{useHistory} from 'react-router-dom'
@@ -13,6 +14,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');  
   const navigate = useNavigate();
+  const [Iswaiting,setIsWaiting]=useState(false);
   
   const[movelogin,setMoveLogin]=useState(false)
   const[forgot,setForgot]=useState(false)
@@ -51,6 +53,7 @@ const LoginForm = () => {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
+    setIsWaiting(true);
     // console.log('Second')
     try {
       // Make an HTTP request to your Python server
@@ -67,16 +70,19 @@ const LoginForm = () => {
         // onLogin();   //Call the onLogin callback to update the parent state             
         navigate('/home');
         
-        localStorage.setItem('auth',true)
-        
-      } else {
+        localStorage.setItem('auth',true)                
+
+      } else {     
         setMessage({ color: 'red', messageerror: 'Invalid username or password.' });
         // setMessage('Invalid username or password.');
       }
     } catch (error) {
+      setIsWaiting(false);
       console.error('Error during login:', error.response);
       setMessage({ color: 'red', messageerror: 'An error occurred. Please try again.' });
       // setMessage('An error occurred. Please try again.');
+    }finally{
+      setIsWaiting(false);
     }
   };
 
@@ -108,38 +114,44 @@ const LoginForm = () => {
   
      
   return (
-    <div className="login-body">
-      <div className='center'>
-        <h1>Login</h1>
-        {/* <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} onKeyPress={cleardata}/>
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={cleardata} /> */}
-        <form method='post' onSubmit={handleSignIn}>
-          <div className='txt_field'>
-            <input type="text" placeholder="" required value={username} onChange={handleUsernameChange} />
-            <span></span>
-            <label>Username</label>
-          </div>
+    <>      
+      <div className={`login-body ${Iswaiting ? 'waiting-mode' : ''}`}>
+        <div className='center'>
+          <h1>Login</h1>
+          {/* <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} onKeyPress={cleardata}/>
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={cleardata} /> */}
+          <form method='post' onSubmit={handleSignIn} className={Iswaiting ? 'transparent' : ''}>                                      
+              <div className='txt_field'>
+                <input type="text" placeholder="" required value={username} onChange={handleUsernameChange} />
+                <span></span>
+                <label>Username</label>
+              </div>
 
-          <div className='txt_field'>
-            <input type="password" placeholder="" required value={password} onChange={handlePasswordChange} /> 
-            <span></span>
-            <label>Password</label>
-          </div>
-          <p style={{ color: message.color}}>{message.messageerror}</p>
-          <div className='pass'><Link to='/forgot' onClick={()=>{handleforgot();}}>Forgot Password?</Link></div>
-            {/* <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} /> */}
-          <input type='submit' value='Login'></input>
-          <div className='signup_link'>
-            Not a member? <Link to='/Sigin' onClick={()=>{handleSignup();}}>Signup</Link>
-          </div>
-          {/* <button onClick={handleSignIn}>Sign In</button> */}
-            {/* <Link to='/about'>About</Link> */}
-            {/* <p>{message}</p> */}
-          
-        </form>     
-        <Outlet />
+              <div className='txt_field'>
+                <input type="password" placeholder="" required value={password} onChange={handlePasswordChange} /> 
+                <span></span>
+                <label>Password</label>
+              </div>
+              <p style={{ color: message.color}}>{message.messageerror}</p>
+              <div className='pass'><Link to='/forgot' onClick={()=>{handleforgot();}}>Forgot Password?</Link></div>
+              {/* <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />  */} 
+              <input type='submit' value='Login'></input>
+              <div className='signup_link'>
+                Not a member? <Link to='/Sigin' onClick={()=>{handleSignup();}}>Signup</Link>
+              </div>     
+              {/* <button onClick={handleSignIn}>Sign In</button> */}
+              {/* <Link to='/about'>About</Link> */}
+              {/* <p>{message}</p> */}                  
+          </form>     
+          <Outlet />
+        </div>    
+        {Iswaiting && (
+          <div className='waiting'>
+            <div className='waiting_load'></div>
+          </div>    
+        )}
       </div>
-    </div>
+    </>
   );
 };
 
