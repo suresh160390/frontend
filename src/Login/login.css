@@ -76,8 +76,9 @@ form .txt_field{
 
 .txt_field input:focus ~ label,
 .txt_field input:valid ~ label{
-    top: -5px;
+    top: -1px;
     color: #2691d9;
+    font-size: 10px;
 }
 
 .txt_field input:focus ~ span::before,
@@ -135,4 +136,3 @@ input[type='submit']:hover{
     text-decoration: underline;
 
 }
-
