@@ -21,7 +21,7 @@ const Services = () => {
           <option value="PES">PES</option>            
         </select>
       </div>
-      <div class='fin_hed'>
+      <div className={`fin_hed ${!isSelect ? 'hidden' : ''}`}>
         {isSelect ? (
           <div>
             <iframe title='TPH'            
@@ -29,7 +29,7 @@ const Services = () => {
               frameboder="0" allowFullScreen="true" >
             </iframe>
           </div>
-          ) : ( <div> </div>
+          ) : ( <div className='hidden'> </div>
         )}
       </div>
     </div>
@@ -37,6 +37,3 @@ const Services = () => {
 }
 
 export default Services
-
-
-
