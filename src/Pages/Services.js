@@ -14,7 +14,7 @@ const Services = () => {
   }
 
   return (
-    <>
+    <div className='ser_par'>   
       <div class='ser_hed'>
         <select id="Services" onChange={handleSelectChange}>
           <option value="Select" >--Select--</option>
@@ -24,17 +24,19 @@ const Services = () => {
       <div class='fin_hed'>
         {isSelect ? (
           <div>
-            <iframe title='TPH'
-              src='https://app.powerbi.com/links/kqzAEIZqYI?ctid=b6a45e6a-409e-4c04-be22-3ad749b6c7bb&pbi_source=linkShare' 
+            <iframe title='TPH'            
+              src='https://app.powerbi.com/links/kqzAEIZqYI?ctid=b6a45e6a-409e-4c04-be22-3ad749b6c7bb&pbi_source=linkShare'
               frameboder="0" allowFullScreen="true" >
             </iframe>
           </div>
           ) : ( <div> </div>
         )}
       </div>
-    </>
+    </div>
   )
 }
 
 export default Services
+
+
 
