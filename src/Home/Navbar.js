@@ -105,10 +105,10 @@ function Navbar(){
   return (
     <>
       <div className='main_cont'>
-        <div style={{width: isOpen ? "250px" : "50px"}} className='sidebar'>
+        <div style={{width: isOpen ? "250px" : "60px"}} className='sidebar'>
             <div className='top_section'>
                 <h1 style={{display: isOpen ? "block" : "none"}} className='logo'>Logo</h1>
-                <div style={{marginLeft: isOpen ? "100px" : "0px"}} className='bars'>
+                <div style={{marginLeft: isOpen ? "50px" : "0px"}} className='bars'>
                 <FaBars style={{cursor:'pointer'}} onClick={toggle}/>
                 </div>
             </div>
