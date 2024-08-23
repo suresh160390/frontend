@@ -32,12 +32,13 @@
     padding: 20px 15px;  
   }
   .logo{
-    font-size: 30px;  
+    font-size: 30px;     
   }
   .bars{
     display: flex;
-    font-size: 25px;
-    margin-left: 50px;
+    font-size: 25px;  
+    margin-left: 100px;  
+  
   }
   .link{
     display: flex;
@@ -64,4 +65,3 @@
   .link_text{
     transform: translateY(-10%);
   }
-
